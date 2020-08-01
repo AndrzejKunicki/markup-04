@@ -26,6 +26,18 @@ body {
   line-height: 1.71;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
 }
@@ -67,8 +79,6 @@ img {
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
-
-  /* outline: 2px solid tomato; */
 }
 
 /*site-nav*/
@@ -139,15 +149,18 @@ header > div {
 
 .contacts.list > li {
   display: flex;
+  align-items: center;
 }
 
 .contacts.list {
   margin-left: auto;
 }
 
-.mail-item::before {
-  content: '';
+.icon-contacts {
+  fill: currentColor;
+  margin-right: 10px;
 }
+
 /*hero*/
 .hero {
   text-align: center;
@@ -298,11 +311,6 @@ header > div {
   background-color: #f5f4fa;
 }
 
-.section .link:hover,
-.section .link:focus {
-  color: var(--accent-color);
-}
-
 .section-team .section-title {
   margin-top: 0;
   margin-bottom: 50px;
@@ -337,6 +345,7 @@ header > div {
 
 .section-team .list {
   display: flex;
+  justify-content: center;
 }
 
 .section-team .list-item {
@@ -344,6 +353,7 @@ header > div {
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12);
   border-radius: 0px 0px 4px 4px;
+  background-color: var(--background-color);
 }
 
 .list-item + .list-item {
@@ -352,6 +362,21 @@ header > div {
 
 .section-team .workman {
   padding: 30px 32px 24px;
+}
+
+.section-team .link {
+  padding: 12px;
+  display: block;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  fill: #afb1b8;
+}
+
+.section-team .link:hover,
+.section-team .link:focus {
+  background-color: var(--accent-color);
+  fill: var(--background-color);
 }
 
 /*Постоянные клиенты*/
@@ -370,6 +395,27 @@ header > div {
 
 .section-clients + .list {
   display: flex;
+  justify-content: center;
+}
+
+.clients-list .link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 170px;
+  height: 90px;
+  border: 1px solid #afb1b8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  fill: #afb1b8;
+}
+
+.clients-list .link:hover,
+.clients-list .link:focus {
+  border: 1px solid var(--accent-color);
+  fill: var(--accent-color);
 }
 
 /*Футер*/
@@ -396,7 +442,8 @@ footer .logo:focus {
 
 /*Футер адрес*/
 footer > div.container {
-  padding: 60px 0px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .address-list {
@@ -546,7 +593,6 @@ button:focus {
   width: calc((100% - 60px) / 3);
   margin-right: 30px;
   margin-bottom: 30px;
-  border: 1px solid #eeeeee;
 }
 
 .list-works li:nth-last-child(-n + 3) {
@@ -585,4 +631,6 @@ button:focus {
 .list-works .list-items {
   padding: 20px 24px;
   text-align: left;
+  border: 1px solid #eeeeee;
+  border-top: 0;
 }
